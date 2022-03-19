@@ -31,8 +31,8 @@ namespace Biblioteca
         {
             this.loginBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.emailBox = new System.Windows.Forms.TextBox();
+            this.passwordBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -51,6 +51,7 @@ namespace Biblioteca
             this.loginBtn.TabIndex = 0;
             this.loginBtn.Text = "Ingresar";
             this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // label1
             // 
@@ -61,24 +62,22 @@ namespace Biblioteca
             this.label1.Size = new System.Drawing.Size(74, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Correo";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // emailBox
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(437, 251);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 25);
-            this.textBox1.TabIndex = 2;
+            this.emailBox.BackColor = System.Drawing.SystemColors.Window;
+            this.emailBox.Location = new System.Drawing.Point(437, 251);
+            this.emailBox.Name = "emailBox";
+            this.emailBox.Size = new System.Drawing.Size(190, 25);
+            this.emailBox.TabIndex = 2;
             // 
-            // textBox2
+            // passwordBox
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Location = new System.Drawing.Point(438, 360);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 25);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.passwordBox.BackColor = System.Drawing.SystemColors.Window;
+            this.passwordBox.Location = new System.Drawing.Point(438, 360);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.Size = new System.Drawing.Size(188, 25);
+            this.passwordBox.TabIndex = 3;
             // 
             // label2
             // 
@@ -121,15 +120,14 @@ namespace Biblioteca
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.passwordBox);
+            this.Controls.Add(this.emailBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.loginBtn);
             this.Font = new System.Drawing.Font("OCR A Extended", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Text = "Biblio Land";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -140,8 +138,8 @@ namespace Biblioteca
 
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox emailBox;
+        private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;

@@ -8,7 +8,7 @@ using System.Data;
 
 namespace connectionDb
 {
-    class connectionDb
+    class connection
     {
         string provider = "Data Source=DESKTOP-DENRRTR;" +
                 "Initial Catalog=biblio_land;" +
@@ -16,43 +16,53 @@ namespace connectionDb
 
         public SqlConnection connect = new SqlConnection();
 
-        public connectionDb()
+        public connection()
         {
             connect.ConnectionString = provider;
         }
 
 
-      /*  public DataTable read()
+        public Boolean registerUser(string email, string password, string fullName)
         {
 
-            SqlDataAdapter da = new SqlDataAdapter("SP_MOSTRARTABLAESTUDIANTES", connect.ConnectionString);
-            da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-
-        }
-
-        public void insert(string enrollment, string firstName, string lastName, int career, string celphone)
-        {
             connect.Open();
-            SqlCommand cmd = new SqlCommand("SP_INSERTAR_ESTUDIANTE", connect);
+            SqlCommand cmd = new SqlCommand("SP_INSERTAR_USUARIO", connect);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Matricula", enrollment);
-            cmd.Parameters.AddWithValue("@Nombre", firstName);
-            cmd.Parameters.AddWithValue("@Apellido", lastName);
-            cmd.Parameters.AddWithValue("@Cod_carrera", career);
-            cmd.Parameters.AddWithValue("@Celular", celphone);
+            cmd.Parameters.AddWithValue("@correo", email);
+            cmd.Parameters.AddWithValue("@contrasena", password);
+            cmd.Parameters.AddWithValue("@nombre", fullName);
 
             try
             {
                 cmd.ExecuteNonQuery();
+                return true;
             }
             catch (SqlException ex)
             {
                 throw ex;
             }
 
-        }*/
+        }
+
+        public string loginUser(string email, string password)
+        {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand("SP_LOGIN_USER", connect);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@correo", email);
+            cmd.Parameters.AddWithValue("@contrasena", password);
+
+
+            try
+            {
+                string reader = (string)cmd.ExecuteScalar();
+                return reader;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }
