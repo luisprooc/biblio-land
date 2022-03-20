@@ -130,6 +130,7 @@ namespace Biblioteca
             this.Name = "LoginForm";
             this.Text = "Biblio Land";
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
