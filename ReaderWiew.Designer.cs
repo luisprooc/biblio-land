@@ -38,24 +38,25 @@
             this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBooks.Location = new System.Drawing.Point(12, 66);
             this.dgvBooks.Name = "dgvBooks";
-            this.dgvBooks.Size = new System.Drawing.Size(776, 351);
+            this.dgvBooks.Size = new System.Drawing.Size(947, 351);
             this.dgvBooks.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(342, 19);
+            this.label1.Location = new System.Drawing.Point(470, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "LIBROS";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ReaderWiew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(971, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvBooks);
             this.Name = "ReaderWiew";

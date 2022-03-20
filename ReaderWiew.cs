@@ -24,10 +24,14 @@ namespace Biblioteca
         private void ReaderWiew1_Load(object sender, EventArgs e)
         {
             classReaderWiew data = new classReaderWiew();
-  
+           
+            dgvBooks.DataSource = data.readerWiew(); 
 
-            dgvBooks.DataSource = data;
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
