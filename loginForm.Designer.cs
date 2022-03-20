@@ -1,7 +1,7 @@
 ﻿
 namespace Biblioteca
 {
-    partial class Form1
+    partial class loginForm
     {
         /// <summary>
         /// Variable del diseñador necesaria.

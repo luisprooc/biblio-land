@@ -11,9 +11,9 @@ using connectionDb;
 
 namespace Biblioteca
 {
-    public partial class Form1 : Form
+    public partial class loginForm : Form
     {
-        public Form1()
+        public loginForm()
         {
             InitializeComponent();
         }
@@ -30,15 +30,15 @@ namespace Biblioteca
             string password = this.passwordBox.Text;
 
             connection database = new connection();
-            string login = database.loginUser(email, password);
+            Login login = database.loginUser(email, password);
             Console.WriteLine(login);
 
-            if (login == null)
+            if (login.Name == "")
             {
-                MessageBox.Show("Correo o contrasena incorrecta", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Correo o contrasena incorrectos", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            MessageBox.Show("WELCOME " + login);
+            MessageBox.Show("WELCOME " + login.Name);
 
         }
     }

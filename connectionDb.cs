@@ -6,6 +6,19 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
+public class Login
+{
+    public string Name { get; set; }
+    public string Permission { get; set; }
+    public Login(string name = "", string permission = "")
+    {
+        Name = name;
+        Permission = permission;
+    }
+
+}
+
+
 namespace connectionDb
 {
     class connection
@@ -24,6 +37,10 @@ namespace connectionDb
 
         public Boolean registerUser(string email, string password, string fullName)
         {
+            if (this.userExist(email))
+            {
+                return false;
+            }
 
             connect.Open();
             SqlCommand cmd = new SqlCommand("SP_INSERTAR_USUARIO", connect);
@@ -44,7 +61,7 @@ namespace connectionDb
 
         }
 
-        public string loginUser(string email, string password)
+        public Login loginUser(string email, string password)
         {
             connect.Open();
             SqlCommand cmd = new SqlCommand("SP_LOGIN_USER", connect);
@@ -55,14 +72,45 @@ namespace connectionDb
 
             try
             {
-                string reader = (string)cmd.ExecuteScalar();
-                return reader;
+                SqlDataReader reader = cmd.ExecuteReader();
+                Login loginData = new Login();
+                if (reader.Read())
+                {
+                    loginData.Name = reader["nombre"].ToString();
+                    loginData.Permission = reader["permiso"].ToString();
+
+                }
+                return loginData;
             }
             catch (SqlException ex)
             {
                 throw ex;
             }
+            finally
+            {
+                connect.Close();
+            }
 
+        }
+
+        public Boolean userExist(string email)
+        {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand($"SELECT nombre FROM USUARIO WHERE correo = {email}", connect);
+
+            try
+            {
+                string reader = (string)cmd.ExecuteScalar();
+                return reader == null;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
     }
 }
