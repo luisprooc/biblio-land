@@ -112,5 +112,41 @@ namespace connectionDb
                 connect.Close();
             }
         }
+
+        public DataTable getUsersAsDataTable()
+        {
+            connect.Open();
+            SqlDataAdapter cmd = new SqlDataAdapter("SELECT nombre, correo, CONCAT('', '**************') AS contrasena FROM USUARIO WHERE permiso = 'DEFAULT'", connect.ConnectionString);
+            DataTable dt = new DataTable();
+            cmd.Fill(dt);
+            return dt;
+
+        }
+
+        public Boolean deleteUser(string email)
+        {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand("SP_ELIMINAR_USUARIO", connect);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@correo", email);
+
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+               
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                connect.Close();
+            }
+
+        }
     }
 }
