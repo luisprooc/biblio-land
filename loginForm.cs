@@ -52,6 +52,7 @@ namespace Biblioteca
             else
             {
                 // Abrir formulario para los admin y cerrar el del login
+                new AdminMainForm().Show();
                 this.Close();
             }
 
