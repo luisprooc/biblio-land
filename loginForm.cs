@@ -45,9 +45,7 @@ namespace Biblioteca
 
             if(login.Permission == "DEFAULT")
             {
-                ReaderWiew ReaderWiew = new ReaderWiew();
-                ReaderWiew.ShowDialog();
-
+                new ReaderWiew().Show();
                 this.Close();
             }
 
