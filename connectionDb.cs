@@ -23,7 +23,8 @@ namespace connectionDb
 {
     class connection
     {
-        string provider = @"Data Source=DESKTOP-J3CIF2E\SQLEXPRESS;" +
+        // Change data source for your local server
+        string provider = @"Data Source=DESKTOP-DENRRTR;" +
                 "Initial Catalog=biblio_land;" +
                 "Integrated Security=True";
 
