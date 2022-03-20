@@ -43,6 +43,18 @@ namespace Biblioteca
             }
             MessageBox.Show("WELCOME " + login.Name);
 
+            if(login.Permission == "DEFAULT")
+            {
+                // Abrir formulario para los lectores y cerrar el del login
+                this.Close();
+            }
+
+            else
+            {
+                // Abrir formulario para los admin y cerrar el del login
+                this.Close();
+            }
+
         }
     }
 }

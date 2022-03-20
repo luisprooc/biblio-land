@@ -107,7 +107,7 @@ namespace connectionDb
             {
                 throw ex;
             }
-            finally
+            finally 
             {
                 connect.Close();
             }
