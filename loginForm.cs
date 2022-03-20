@@ -11,17 +11,21 @@ using connectionDb;
 
 namespace Biblioteca
 {
-    public partial class loginForm : Form
+    public partial class LoginForm : Form
     {
-        public loginForm()
+        public LoginForm()
         {
             InitializeComponent();
+            passwordBox.PasswordChar = '*';
+            passwordBox.MaxLength = 30;
+            emailBox.MaxLength = 60;
         }
 
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Registrate");
+            RegisterForm form = new RegisterForm();
+            form.Show();
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -31,7 +35,6 @@ namespace Biblioteca
 
             connection database = new connection();
             Login login = database.loginUser(email, password);
-            Console.WriteLine(login);
 
             if (login.Name == "")
             {

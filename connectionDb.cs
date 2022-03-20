@@ -96,12 +96,12 @@ namespace connectionDb
         public Boolean userExist(string email)
         {
             connect.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT nombre FROM USUARIO WHERE correo = {email}", connect);
+            SqlCommand cmd = new SqlCommand($"SELECT * FROM USUARIO WHERE correo = '{email}'", connect);
 
             try
             {
-                string reader = (string)cmd.ExecuteScalar();
-                return reader == null;
+                SqlDataReader reader = cmd.ExecuteReader();
+                return reader.Read();
             }
             catch (SqlException ex)
             {
