@@ -120,5 +120,8 @@
   <ItemGroup>
     <None Include="Resources\klipartz.com.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\211817_search_strong_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
