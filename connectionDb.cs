@@ -121,17 +121,17 @@ namespace connectionDb
     }
     public class classReaderWiew
     {
-        public DataTable readerWiew()
+        public DataTable readerWiew(string slqConsultation)
         {
             connection database = new connection();
             database.connect.Open();
             DataTable table = new DataTable();
-            string sqlAdvancedConsultation = "SELECT LIBRO.titulo, LIBRO.fecha_lanzamiento, DETALLES_LIBRO.edicion, DETALLES_LIBRO.idioma, DETALLES_LIBRO.rating, AUTOR.id_autor, AUTOR.nombre, AUTOR.apellido, EDITORIAL.editorial FROM LIBRO INNER JOIN DETALLES_LIBRO ON LIBRO.id_detalles_libro = DETALLES_LIBRO.id_detalles_libro INNER JOIN EDITORIAL ON LIBRO.id_editorial = EDITORIAL.id_editorial LEFT JOIN AUTOR ON LIBRO.id_autor = AUTOR.id_autor;";
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlAdvancedConsultation, database.connect);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(slqConsultation, database.connect);
             sqlDataAdapter.Fill(table);
+          
             try
             {
-                return table;
+                return  table;
 
             }
             catch (SqlException ex)
@@ -139,6 +139,9 @@ namespace connectionDb
                 throw ex;
             }
         }
+
+
+
     }
 
 
