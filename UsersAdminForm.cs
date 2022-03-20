@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Biblioteca
 {
-    public partial class AdminMainForm : Form
+    public partial class UsersAdminForm : Form
     {
-        public AdminMainForm()
+        public UsersAdminForm()
         {
             InitializeComponent();
-        }
-
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

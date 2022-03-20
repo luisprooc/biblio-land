@@ -33,9 +33,9 @@ namespace Biblioteca
             this.librosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editorialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,13 @@ namespace Biblioteca
             this.editorialesToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.editorialesToolStripMenuItem.Text = "Editoriales 🏢";
             // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.usuariosToolStripMenuItem.Text = "Usuarios 👩👨";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -95,12 +102,6 @@ namespace Biblioteca
             this.button1.TabIndex = 2;
             this.button1.Text = "Refrescar 🔄";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
-            this.usuariosToolStripMenuItem.Text = "Usuarios 👩👨";
             // 
             // AdminMainForm
             // 
