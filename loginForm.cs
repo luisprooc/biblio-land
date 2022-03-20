@@ -45,7 +45,9 @@ namespace Biblioteca
 
             if(login.Permission == "DEFAULT")
             {
-                // Abrir formulario para los lectores y cerrar el del login
+                ReaderWiew ReaderWiew = new ReaderWiew();
+                ReaderWiew.ShowDialog();
+
                 this.Close();
             }
 
@@ -54,6 +56,11 @@ namespace Biblioteca
                 // Abrir formulario para los admin y cerrar el del login
                 this.Close();
             }
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
 
         }
     }
