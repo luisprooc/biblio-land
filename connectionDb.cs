@@ -24,7 +24,7 @@ namespace connectionDb
     class connection
     {
         // Change data source for your local server
-        string provider = @"Data Source=DESKTOP-DENRRTR;" +
+        string provider = @"Data Source=LAPTOP-ERTLID2K;" +
                 "Initial Catalog=biblio_land;" +
                 "Integrated Security=True";
 
@@ -35,7 +35,7 @@ namespace connectionDb
             connect.ConnectionString = provider;
         }
 
-   
+
 
         public Boolean registerUser(string email, string password, string fullName)
         {
@@ -101,6 +101,7 @@ namespace connectionDb
             connect.Open();
             SqlCommand cmd = new SqlCommand($"SELECT * FROM USUARIO WHERE correo = '{email}'", connect);
 
+
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -110,7 +111,7 @@ namespace connectionDb
             {
                 throw ex;
             }
-            finally 
+            finally
             {
                 connect.Close();
             }
@@ -137,7 +138,7 @@ namespace connectionDb
             try
             {
                 cmd.ExecuteNonQuery();
-               
+
                 return true;
             }
             catch (SqlException ex)
@@ -151,6 +152,40 @@ namespace connectionDb
             }
 
         }
+        public Boolean insertBooks(string title, string datePost, string id_editorial, string id_autor, string id_type)
+        {
+            
+           
+            connect.Open();
+            SqlCommand cmd1 = new SqlCommand($"SELECT * FROM LIBRO WHERE titulo = '{title}'", connect);
+            SqlCommand cmd = new SqlCommand("insertBooks", connect);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@titulo", title);
+            cmd.Parameters.AddWithValue("@fecha_lanzamiento", Convert.ToDateTime(datePost));
+            cmd.Parameters.AddWithValue("@id_editorial", Convert.ToInt32(id_editorial));
+            cmd.Parameters.AddWithValue("@id_autor", Convert.ToInt32(id_autor));
+            cmd.Parameters.AddWithValue("@id_tipoLibro", Convert.ToInt32(id_type));
+            try
+            {
+               
+                SqlDataReader reader = cmd1.ExecuteReader();
+                if(reader.Read())
+                {
+                    return false;
+                }
+                reader.Close();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
     }
     public class classReaderWiew
     {
@@ -161,10 +196,10 @@ namespace connectionDb
             DataTable table = new DataTable();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(slqConsultation, database.connect);
             sqlDataAdapter.Fill(table);
-          
+
             try
             {
-                return  table;
+                return table;
 
             }
             catch (SqlException ex)
@@ -176,7 +211,45 @@ namespace connectionDb
 
 
     }
+    public class Editoriales
+    {
+        connection cn =new connection();
+        public DataTable CargarEditoriales()
+        {
 
+            SqlDataAdapter da = new SqlDataAdapter("SP_CARGAR_EDITORIAL", cn.connect);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+    }
+    public class Autores
+    {
+        connection cn1 = new connection();
+        public DataTable CargarAutores()
+        {
 
+            SqlDataAdapter da1 = new SqlDataAdapter("SP_CARGAR_AUTORES", cn1.connect);
+            da1.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt1 = new DataTable();
+            da1.Fill(dt1);
+            return dt1;
+        }
+    }
+    public class Tipo
+    {
+        connection cn2 = new connection();
+        public DataTable CargarTipo()
+        {
+
+            SqlDataAdapter da2 = new SqlDataAdapter("SP_CARGAR_TIPO", cn2.connect);
+            da2.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt2 = new DataTable();
+            da2.Fill(dt2);
+            return dt2;
+        }
+    }
+   
 }
 

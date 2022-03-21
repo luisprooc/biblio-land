@@ -51,20 +51,21 @@ namespace Biblioteca
             this.usuariosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1133, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1133, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // librosToolStripMenuItem
             // 
             this.librosToolStripMenuItem.Name = "librosToolStripMenuItem";
-            this.librosToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.librosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.librosToolStripMenuItem.Text = "Libros 📕";
+            this.librosToolStripMenuItem.Click += new System.EventHandler(this.librosToolStripMenuItem_Click);
             // 
             // autoresToolStripMenuItem
             // 
             this.autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
-            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
+            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
             this.autoresToolStripMenuItem.Text = "Autores 👨‍💼";
             // 
             // editorialesToolStripMenuItem
@@ -76,7 +77,7 @@ namespace Biblioteca
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios 👩👨";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -117,6 +118,7 @@ namespace Biblioteca
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "AdminMainForm";
             this.Text = "Biblio Land";
+            this.Load += new System.EventHandler(this.AdminMainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
