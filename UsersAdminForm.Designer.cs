@@ -1,7 +1,7 @@
 ﻿
 namespace Biblioteca
 {
-    partial class AdminMainForm
+    partial class UsersAdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,44 @@ namespace Biblioteca
         /// </summary>
         private void InitializeComponent()
         {
+            this.dgUsers = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.librosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editorialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.deleteUserBtn = new System.Windows.Forms.Button();
+            this.refreshBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgUsers
+            // 
+            this.dgUsers.AllowUserToAddRows = false;
+            this.dgUsers.AllowUserToOrderColumns = true;
+            this.dgUsers.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgUsers.Location = new System.Drawing.Point(338, 189);
+            this.dgUsers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgUsers.Name = "dgUsers";
+            this.dgUsers.ReadOnly = true;
+            this.dgUsers.RowHeadersWidth = 51;
+            this.dgUsers.RowTemplate.Height = 24;
+            this.dgUsers.Size = new System.Drawing.Size(591, 339);
+            this.dgUsers.TabIndex = 0;
+            this.dgUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("OCR A Extended", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(474, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 32);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "USUARIOS";
             // 
             // menuStrip1
             // 
@@ -51,8 +79,8 @@ namespace Biblioteca
             this.usuariosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1133, 30);
-            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Size = new System.Drawing.Size(1111, 28);
+            this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // librosToolStripMenuItem
@@ -78,48 +106,48 @@ namespace Biblioteca
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios 👩👨";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
-            // dataGridView1
+            // deleteUserBtn
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(141, 123);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(833, 385);
-            this.dataGridView1.TabIndex = 1;
+            this.deleteUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteUserBtn.Location = new System.Drawing.Point(96, 378);
+            this.deleteUserBtn.Name = "deleteUserBtn";
+            this.deleteUserBtn.Size = new System.Drawing.Size(153, 54);
+            this.deleteUserBtn.TabIndex = 3;
+            this.deleteUserBtn.Text = "Bannear usuario ❌";
+            this.deleteUserBtn.UseVisualStyleBackColor = true;
+            this.deleteUserBtn.Click += new System.EventHandler(this.deleteUserBtn_Click);
             // 
-            // button1
+            // refreshBtn
             // 
-            this.button1.Location = new System.Drawing.Point(141, 545);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 36);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Refrescar 🔄";
-            this.button1.UseVisualStyleBackColor = true;
+            this.refreshBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.refreshBtn.Location = new System.Drawing.Point(96, 286);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(153, 42);
+            this.refreshBtn.TabIndex = 4;
+            this.refreshBtn.Text = "Refrescar 🔄";
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
-            // AdminMainForm
+            // UsersAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1133, 708);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1111, 711);
+            this.Controls.Add(this.refreshBtn);
+            this.Controls.Add(this.deleteUserBtn);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgUsers);
             this.Font = new System.Drawing.Font("OCR A Extended", 10.2F);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "AdminMainForm";
-            this.Text = "Biblio Land";
+            this.Name = "UsersAdminForm";
+            this.Text = "UsersAdminForm";
+            this.Load += new System.EventHandler(this.UsersAdminForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,12 +155,14 @@ namespace Biblioteca
 
         #endregion
 
+        private System.Windows.Forms.DataGridView dgUsers;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem librosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editorialesToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.Button deleteUserBtn;
+        private System.Windows.Forms.Button refreshBtn;
     }
 }

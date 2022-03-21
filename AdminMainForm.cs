@@ -17,5 +17,10 @@ namespace Biblioteca
             InitializeComponent();
         }
 
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new UsersAdminForm().Show();
+        }
     }
 }
