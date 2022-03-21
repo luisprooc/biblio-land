@@ -67,5 +67,11 @@ namespace Biblioteca
             }
 
         }
+
+        private void librosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form addBooks = new AddBooksForm();
+            addBooks.Show();
+        }
     }
 }

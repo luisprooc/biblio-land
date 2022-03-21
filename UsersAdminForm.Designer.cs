@@ -64,7 +64,7 @@ namespace Biblioteca
             this.label1.Font = new System.Drawing.Font("OCR A Extended", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(474, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 32);
+            this.label1.Size = new System.Drawing.Size(166, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "USUARIOS";
             // 
@@ -86,13 +86,14 @@ namespace Biblioteca
             // librosToolStripMenuItem
             // 
             this.librosToolStripMenuItem.Name = "librosToolStripMenuItem";
-            this.librosToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.librosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.librosToolStripMenuItem.Text = "Libros 📕";
+            this.librosToolStripMenuItem.Click += new System.EventHandler(this.librosToolStripMenuItem_Click);
             // 
             // autoresToolStripMenuItem
             // 
             this.autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
-            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
+            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
             this.autoresToolStripMenuItem.Text = "Autores 👨‍💼";
             // 
             // editorialesToolStripMenuItem
@@ -104,7 +105,7 @@ namespace Biblioteca
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios 👩👨";
             // 
             // deleteUserBtn

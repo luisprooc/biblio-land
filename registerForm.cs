@@ -89,5 +89,10 @@ namespace Biblioteca
 
             return re.IsMatch(email);
         }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
