@@ -17,6 +17,9 @@ namespace Biblioteca
         public AddBooksForm()
         {
             InitializeComponent();
+            ratingBox.MaxLength = 3;
+            textBox1.Focus();
+
         }
         Editoriales cat = new Editoriales();
         Autores cat1 = new Autores();
@@ -34,21 +37,6 @@ namespace Biblioteca
             comboBox3.ValueMember = "id_tipo_libro";
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-       
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -58,44 +46,37 @@ namespace Biblioteca
             string id_editorial = this.comboBox1.SelectedValue.ToString();
             string id_autor = this.comboBox2.SelectedValue.ToString();
             string id_type = this.comboBox3.SelectedValue.ToString();
+            string languaje = this.languajeBox.Text;
+            string edition = this.editionBox.Text;
+            double rating = Convert.ToDouble(this.ratingBox.Text);
     
             connection database = new connection();
-            bool success = database.insertBooks(title, datePost, id_editorial, id_autor, id_type);
+            bool success = database.insertBooks(title, datePost, id_editorial, id_autor, id_type, languaje, edition, rating);
             if (!success)
             {
-                MessageBox.Show("Este libro esta registrado ", "Error al registrar sus datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Este libro ya esta registrado.", "Error al registrar sus datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else { MessageBox.Show("Libro registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else { 
+                
+                MessageBox.Show("Libro registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.textBox1.Clear();
-               
+                this.editionBox.Clear();
+                this.ratingBox.Clear();
+                this.languajeBox.Clear();
             }
         }
        
-       
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form editorialWiew = new EditorialWiew();
             editorialWiew.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
    

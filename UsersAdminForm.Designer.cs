@@ -35,7 +35,6 @@ namespace Biblioteca
             this.librosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editorialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteUserBtn = new System.Windows.Forms.Button();
             this.refreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).BeginInit();
@@ -75,27 +74,26 @@ namespace Biblioteca
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.librosToolStripMenuItem,
             this.autoresToolStripMenuItem,
-            this.editorialesToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.editorialesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1028, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // librosToolStripMenuItem
             // 
             this.librosToolStripMenuItem.Name = "librosToolStripMenuItem";
-            this.librosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.librosToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.librosToolStripMenuItem.Text = "Libros 📕";
             this.librosToolStripMenuItem.Click += new System.EventHandler(this.librosToolStripMenuItem_Click);
             // 
             // autoresToolStripMenuItem
             // 
             this.autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
-            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
             this.autoresToolStripMenuItem.Text = "Autores 👨‍💼";
+            this.autoresToolStripMenuItem.Click += new System.EventHandler(this.autoresToolStripMenuItem_Click);
             // 
             // editorialesToolStripMenuItem
             // 
@@ -103,12 +101,6 @@ namespace Biblioteca
             this.editorialesToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.editorialesToolStripMenuItem.Text = "Editoriales 🏢";
             this.editorialesToolStripMenuItem.Click += new System.EventHandler(this.editorialesToolStripMenuItem_Click);
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
-            this.usuariosToolStripMenuItem.Text = "Usuarios 👩👨";
             // 
             // deleteUserBtn
             // 
@@ -146,7 +138,7 @@ namespace Biblioteca
             this.Font = new System.Drawing.Font("OCR A Extended", 10.2F);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "UsersAdminForm";
-            this.Text = "UsersAdminForm";
+            this.Text = "Biblio Land - Usuarios";
             this.Load += new System.EventHandler(this.UsersAdminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgUsers)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -164,7 +156,6 @@ namespace Biblioteca
         private System.Windows.Forms.ToolStripMenuItem librosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editorialesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.Button deleteUserBtn;
         private System.Windows.Forms.Button refreshBtn;
     }

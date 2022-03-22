@@ -62,7 +62,7 @@ namespace Biblioteca
 
                 else
                 {
-                    MessageBox.Show("No se ha podido bannear el usuario.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se ha podido bannear el usuario.", "Error al bannear usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -70,19 +70,21 @@ namespace Biblioteca
 
         private void librosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form addBooks = new AddBooksForm();
-            addBooks.Show();
+            this.Close();
+            new AdminMainForm().Show();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void autoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            new AuthorAdminForm().Show();
         }
 
         private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                Form editorialWiew = new EditorialWiew();
-                editorialWiew.Show();
-            }
+            this.Close();
+            new EditorialWiew().Show();
+        }
+
     }
 }
