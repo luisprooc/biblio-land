@@ -58,15 +58,16 @@ namespace Biblioteca
             // librosToolStripMenuItem
             // 
             this.librosToolStripMenuItem.Name = "librosToolStripMenuItem";
-            this.librosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.librosToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.librosToolStripMenuItem.Text = "Libros 📕";
             this.librosToolStripMenuItem.Click += new System.EventHandler(this.librosToolStripMenuItem_Click);
             // 
             // autoresToolStripMenuItem
             // 
             this.autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
-            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
             this.autoresToolStripMenuItem.Text = "Autores 👨‍💼";
+            this.autoresToolStripMenuItem.Click += new System.EventHandler(this.autoresToolStripMenuItem_Click);
             // 
             // editorialesToolStripMenuItem
             // 
@@ -77,7 +78,7 @@ namespace Biblioteca
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios 👩👨";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 

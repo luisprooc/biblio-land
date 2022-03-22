@@ -62,7 +62,7 @@ namespace Biblioteca
 
                 else
                 {
-                    MessageBox.Show("No se ha podido bannear el usuario.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se ha podido bannear el usuario.", "Error al bannear usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -72,6 +72,12 @@ namespace Biblioteca
         {
             Form addBooks = new AddBooksForm();
             addBooks.Show();
+        }
+
+        private void autoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new AuthorAdminForm().Show();
         }
     }
 }

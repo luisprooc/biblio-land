@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Globalization;
 
 public class Login
 {
@@ -24,7 +25,7 @@ namespace connectionDb
     class connection
     {
         // Change data source for your local server
-        string provider = @"Data Source=LAPTOP-ERTLID2K;" +
+        string provider = @"Data Source=DESKTOP-DENRRTR;" +
                 "Initial Catalog=biblio_land;" +
                 "Integrated Security=True";
 
@@ -186,7 +187,126 @@ namespace connectionDb
                 connect.Close();
             }
         }
+
+
+        public DataTable getAuthorAsDataTable()
+        {
+            connect.Open();
+            SqlDataAdapter cmd = new SqlDataAdapter("SELECT AUTOR.id_autor, AUTOR.nombre, AUTOR.apellido, DETALLES_AUTOR.fecha_nacimiento, DETALLES_AUTOR.pais_nacimiento, DETALLES_AUTOR.sexo, DETALLES_AUTOR.id_detalles_autor FROM AUTOR INNER JOIN DETALLES_AUTOR ON AUTOR.id_detalles_autor = DETALLES_AUTOR.id_detalles_autor", connect.ConnectionString);
+            DataTable dt = new DataTable();
+            cmd.Fill(dt);
+            return dt;
+
+        }
+
+
+        public Boolean insertAuthor(string firstName, string lastName, string sex, string country, DateTime birthDate)
+        {
+
+            int authorDetailsId = this.insertAuthorDetails(sex, country, birthDate);
+            connect.Open();
+            SqlCommand cmd = new SqlCommand("SP_INSERTAR_AUTOR", connect)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@nombre", firstName);
+            cmd.Parameters.AddWithValue("@id_detalles_autor", authorDetailsId);
+            cmd.Parameters.AddWithValue("@apellido", lastName);
+            try
+            {
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
+        private int insertAuthorDetails(string sex, string country, DateTime birthDate)
+        {
+
+            connect.Open();
+            SqlCommand cmd = new SqlCommand("SP_INSERTAR_DETALLES_AUTOR", connect) {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@sexo", sex);
+            cmd.Parameters.AddWithValue("@pais_nacimiento", country);
+            cmd.Parameters.AddWithValue("@fecha_nacimiento", birthDate);
+            string birth = birthDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            Console.WriteLine(birth);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                SqlCommand commad = new SqlCommand($"SELECT id_detalles_autor FROM DETALLES_AUTOR WHERE sexo = '{sex}' AND pais_nacimiento = '{country}' AND fecha_nacimiento = '{birth}' ", connect);
+                return (Int32)commad.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
+        public Boolean deleteAuthor(int id)
+        {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand($"DELETE FROM AUTOR WHERE id_autor='{id}'", connect);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                connect.Close();
+            }
+
+        }
+
+        public Boolean updateAuthor(int id, string property, string value)
+        {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand($"UPDATE AUTOR SET {property} = '{value}' WHERE id_autor='{id}'", connect);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
     }
+
+
+
+
     public class classReaderWiew
     {
         public DataTable readerWiew(string slqConsultation)
