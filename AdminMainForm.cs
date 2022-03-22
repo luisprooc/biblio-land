@@ -33,5 +33,11 @@ namespace Biblioteca
         {
 
         }
+
+        private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form editorialWiew = new EditorialWiew();
+            editorialWiew.Show();
+        }
     }
 }

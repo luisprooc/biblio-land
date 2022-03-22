@@ -24,7 +24,7 @@ namespace connectionDb
     class connection
     {
         // Change data source for your local server
-        string provider = @"Data Source=LAPTOP-ERTLID2K;" +
+        string provider = @"Data Source=DESKTOP-J3CIF2E\SQLEXPRESS;" +
                 "Initial Catalog=biblio_land;" +
                 "Integrated Security=True";
 
@@ -199,7 +199,7 @@ namespace connectionDb
 
             try
             {
-                return table;
+                return  table;
 
             }
             catch (SqlException ex)
@@ -207,6 +207,7 @@ namespace connectionDb
                 throw ex;
             }
         }
+
 
 
 
@@ -250,6 +251,93 @@ namespace connectionDb
             return dt2;
         }
     }
-   
+
+
+    public class classEditorial
+    {
+        public DataTable editorialTable()
+        {
+            connection database = new connection();
+            database.connect.Open();
+            DataTable table = new DataTable();
+            string slqConsultation = @"SELECT * FROM EDITORIAL;";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(slqConsultation, database.connect);
+            sqlDataAdapter.Fill(table);
+
+            try
+            {
+                return table;
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Boolean insertEditorial(string editorial)
+        {
+            connection database = new connection();
+            database.connect.Open();
+
+            SqlCommand cmd = new SqlCommand("SP_INSERTAR_EDITORIAL", database.connect);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@editorial", editorial);
+
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                database.connect.Close();
+            }
+
+        }
+
+        public Boolean updateEditorial(string id_editorial, string editorial)
+        {
+            connection database = new connection();
+            database.connect.Open();
+
+            SqlCommand cmd = new SqlCommand("SP_UPDATE_EDITORIAL", database.connect);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id_editorial", Convert.ToInt32(id_editorial));
+            cmd.Parameters.AddWithValue("@editorial", editorial);
+
+
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                database.connect.Close();
+            }
+
+        }
+
+
+
+
+    }
+
+
 }
 
