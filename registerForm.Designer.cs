@@ -47,7 +47,7 @@ namespace Biblioteca
             this.label1.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(396, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 32);
+            this.label1.Size = new System.Drawing.Size(204, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "REGISTRATE";
             // 
@@ -148,6 +148,7 @@ namespace Biblioteca
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "RegisterForm";
             this.Text = "Registro";
+            this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

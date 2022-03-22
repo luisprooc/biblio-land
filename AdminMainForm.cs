@@ -17,5 +17,21 @@ namespace Biblioteca
             InitializeComponent();
         }
 
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new UsersAdminForm().Show();
+        }
+
+        private void librosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form addBooks = new AddBooksForm();
+            addBooks.Show();
+        }
+
+        private void AdminMainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
