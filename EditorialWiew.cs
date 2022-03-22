@@ -19,12 +19,13 @@ namespace Biblioteca
         public EditorialWiew()
         {
             InitializeComponent();
+            btnUpdate.Enabled = false;
         }
 
         private void librosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form addBooks = new AddBooksForm();
-            addBooks.Show();
+            this.Close();
+            new AdminMainForm().Show();
         }
 
         private void EditorialWiew_Load(object sender, EventArgs e)
@@ -43,11 +44,11 @@ namespace Biblioteca
             {
                data.insertEditorial(editorial);
                 MessageBox.Show("Su editorial se ha regitrado con el nombre de: " + editorial, "Operacion exitosa ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                dgvEditorial.DataSource = data.editorialTable();
             }
             else
             {
-                MessageBox.Show("Introduzca un nombre", "Error al intentar agregar una Editorial", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Ha ocurrido un error.", "Error al intentar agregar una Editorial", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
 
         }
@@ -59,8 +60,8 @@ namespace Biblioteca
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string editorial = txtUpdateEditorial.Text;
             int position = dgvEditorial.CurrentRow.Index;  
+            string editorial = txtUpdateEditorial.Text;
             string id_editorial = dgvEditorial[0, position].Value.ToString();
 
             if(id_editorial != "" & editorial !="")
@@ -81,6 +82,23 @@ namespace Biblioteca
 
 
 
+        }
+
+        private void dgvEditorial_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.btnUpdate.Enabled = true;
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new UsersAdminForm().Show();
+        }
+
+        private void autoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new AuthorAdminForm().Show();
         }
     }
 }

@@ -63,6 +63,17 @@ namespace Biblioteca.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap depositphotos_68491715_stock_illustration_pictograph_of_book_icon_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("depositphotos_68491715-stock-illustration-pictograph-of-book-icon-removebg-previe" +
+                        "w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap klipartz_com {
             get {
                 object obj = ResourceManager.GetObject("klipartz.com", resourceCulture);

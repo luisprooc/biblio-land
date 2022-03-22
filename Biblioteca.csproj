@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\211817_search_strong_icon.png" />
+    <None Include="Resources\depositphotos_68491715-stock-illustration-pictograph-of-book-icon-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

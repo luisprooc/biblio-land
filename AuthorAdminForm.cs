@@ -17,7 +17,6 @@ namespace Biblioteca
         {
             InitializeComponent();
             deleteBtn.Enabled = false;
-            editBtn.Enabled = false;
             
         }
 
@@ -132,7 +131,14 @@ namespace Biblioteca
 
         private void librosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AddBooksForm().Show();
+            this.Close();
+            new AdminMainForm();
+        }
+
+        private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new EditorialWiew().Show();
         }
     }
 }

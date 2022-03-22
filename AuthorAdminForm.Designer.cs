@@ -80,6 +80,7 @@ namespace Biblioteca
             this.editorialesToolStripMenuItem.Name = "editorialesToolStripMenuItem";
             this.editorialesToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.editorialesToolStripMenuItem.Text = "Editoriales 🏢";
+            this.editorialesToolStripMenuItem.Click += new System.EventHandler(this.editorialesToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -273,7 +274,7 @@ namespace Biblioteca
             this.Controls.Add(this.dgAuthor);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("OCR A Extended", 10.2F);
-            this.ForeColor = System.Drawing.Color.Coral;
+            this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "AuthorAdminForm";
             this.Text = "Biblio Land - Autores";

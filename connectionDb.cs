@@ -153,10 +153,10 @@ namespace connectionDb
             }
 
         }
-        public Boolean insertBooks(string title, string datePost, string id_editorial, string id_autor, string id_type)
+        public Boolean insertBooks(string title, string datePost, string id_editorial, string id_autor, string id_type, string languaje, string edition, double rating)
         {
-            
-           
+
+            int idDetailsBook = this.insertDetailsBook(languaje,edition,rating); 
             connect.Open();
             SqlCommand cmd1 = new SqlCommand($"SELECT * FROM LIBRO WHERE titulo = '{title}'", connect);
             SqlCommand cmd = new SqlCommand("insertBooks", connect);
@@ -166,6 +166,7 @@ namespace connectionDb
             cmd.Parameters.AddWithValue("@id_editorial", Convert.ToInt32(id_editorial));
             cmd.Parameters.AddWithValue("@id_autor", Convert.ToInt32(id_autor));
             cmd.Parameters.AddWithValue("@id_tipoLibro", Convert.ToInt32(id_type));
+            cmd.Parameters.AddWithValue("@id_detallesLibro", idDetailsBook);
             try
             {
                
@@ -177,6 +178,36 @@ namespace connectionDb
                 reader.Close();
                 cmd.ExecuteNonQuery();
                 return true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
+
+        private int insertDetailsBook(string languaje, string edition, double rating)
+        {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand("SP_INSERTAR_DETALLES_LIBRO", connect)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlCommand commandReader = new SqlCommand($"SELECT id_detalles_libro FROM DETALLES_LIBRO WHERE idioma = '{languaje}' AND rating = '{rating}' AND edicion = '{edition}';", connect);
+            cmd.Parameters.AddWithValue("@idioma", languaje);
+            cmd.Parameters.AddWithValue("@edicion", edition);
+            cmd.Parameters.AddWithValue("@rating", rating);
+ 
+            try
+            {
+
+                cmd.ExecuteNonQuery();
+                int id = (Int32)commandReader.ExecuteScalar();
+                return id;
             }
             catch (SqlException ex)
             {
@@ -285,6 +316,51 @@ namespace connectionDb
         {
             connect.Open();
             SqlCommand cmd = new SqlCommand($"UPDATE AUTOR SET {property} = '{value}' WHERE id_autor='{id}'", connect);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
+
+        public Boolean deleteBook(int id)
+        {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand($"DELETE FROM LIBRO WHERE id_libro='{id}'", connect);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+
+        public Boolean updateBook(int id, string property, string value)
+        {
+            connect.Open();
+            SqlCommand cmd = new SqlCommand($"UPDATE LIBRO SET {property} = '{value}' WHERE id_libro='{id}'", connect);
 
             try
             {

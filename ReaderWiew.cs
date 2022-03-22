@@ -55,10 +55,5 @@ namespace Biblioteca
             dgvBooks.DataSource = data.readerWiew(sqlAdvancedConsultation);
 
         }
-
-        private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

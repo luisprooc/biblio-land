@@ -70,8 +70,8 @@ namespace Biblioteca
 
         private void librosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form addBooks = new AddBooksForm();
-            addBooks.Show();
+            this.Close();
+            new AdminMainForm().Show();
         }
 
         private void autoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,9 +82,9 @@ namespace Biblioteca
 
         private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                Form editorialWiew = new EditorialWiew();
-                editorialWiew.Show();
-            }
+            this.Close();
+            new EditorialWiew().Show();
+        }
 
     }
 }
