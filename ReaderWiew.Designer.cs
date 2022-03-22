@@ -44,6 +44,7 @@
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.Size = new System.Drawing.Size(947, 351);
             this.dgvBooks.TabIndex = 0;
+            this.dgvBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooks_CellContentClick);
             // 
             // label1
             // 

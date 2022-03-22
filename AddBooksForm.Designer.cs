@@ -57,34 +57,38 @@
             this.usuariosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(818, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(614, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // autoresToolStripMenuItem
             // 
             this.autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
-            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.autoresToolStripMenuItem.Text = "Autores 👨‍💼";
             // 
             // editorialesToolStripMenuItem
             // 
             this.editorialesToolStripMenuItem.Name = "editorialesToolStripMenuItem";
-            this.editorialesToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.editorialesToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.editorialesToolStripMenuItem.Text = "Editoriales 🏢";
+            this.editorialesToolStripMenuItem.Click += new System.EventHandler(this.editorialesToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.usuariosToolStripMenuItem.Text = "Usuarios 👩👨";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 8);
+            this.label1.Location = new System.Drawing.Point(6, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 2;
             // 
             // Titulo
@@ -93,18 +97,20 @@
             this.Titulo.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.Titulo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.Titulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Titulo.Location = new System.Drawing.Point(331, 47);
+            this.Titulo.Location = new System.Drawing.Point(248, 38);
+            this.Titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(96, 16);
+            this.Titulo.Size = new System.Drawing.Size(77, 13);
             this.Titulo.TabIndex = 3;
             this.Titulo.Text = "Titulo Del libro ";
             this.Titulo.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(308, 66);
+            this.textBox1.Location = new System.Drawing.Point(231, 54);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 22);
+            this.textBox1.Size = new System.Drawing.Size(106, 20);
             this.textBox1.TabIndex = 5;
             // 
             // label2
@@ -113,18 +119,20 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(314, 100);
+            this.label2.Location = new System.Drawing.Point(236, 81);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 16);
+            this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Fecha Lanzamiento";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(306, 128);
+            this.dateTimePicker1.Location = new System.Drawing.Point(230, 104);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(141, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(107, 20);
             this.dateTimePicker1.TabIndex = 7;
             // 
             // label3
@@ -133,18 +141,20 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(331, 163);
+            this.label3.Location = new System.Drawing.Point(248, 132);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 16);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "ID Editorial ";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(305, 182);
+            this.comboBox1.Location = new System.Drawing.Point(229, 148);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(142, 24);
+            this.comboBox1.Size = new System.Drawing.Size(108, 21);
             this.comboBox1.TabIndex = 9;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -154,18 +164,20 @@
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(331, 218);
+            this.label4.Location = new System.Drawing.Point(248, 177);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 16);
+            this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "ID Autor";
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(305, 237);
+            this.comboBox2.Location = new System.Drawing.Point(229, 193);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(142, 24);
+            this.comboBox2.Size = new System.Drawing.Size(108, 21);
             this.comboBox2.TabIndex = 11;
             // 
             // label5
@@ -174,26 +186,29 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(328, 273);
+            this.label5.Location = new System.Drawing.Point(246, 222);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 16);
+            this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "ID Tipo de libro";
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(305, 292);
+            this.comboBox3.Location = new System.Drawing.Point(229, 237);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(142, 24);
+            this.comboBox3.Size = new System.Drawing.Size(108, 21);
             this.comboBox3.TabIndex = 13;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged_1);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(327, 344);
+            this.button1.Location = new System.Drawing.Point(245, 280);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 33);
+            this.button1.Size = new System.Drawing.Size(75, 27);
             this.button1.TabIndex = 16;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
@@ -201,10 +216,10 @@
             // 
             // AddBooksForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(818, 470);
+            this.ClientSize = new System.Drawing.Size(614, 382);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label5);
@@ -218,6 +233,7 @@
             this.Controls.Add(this.Titulo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddBooksForm";
             this.Text = "Add Books";
             this.Load += new System.EventHandler(this.AddBooksForm_Load);

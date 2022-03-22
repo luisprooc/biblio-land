@@ -79,5 +79,12 @@ namespace Biblioteca
             this.Close();
             new AuthorAdminForm().Show();
         }
+
+        private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                Form editorialWiew = new EditorialWiew();
+                editorialWiew.Show();
+            }
+
     }
 }
