@@ -73,5 +73,16 @@ namespace Biblioteca
             Form addBooks = new AddBooksForm();
             addBooks.Show();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void editorialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                Form editorialWiew = new EditorialWiew();
+                editorialWiew.Show();
+            }
     }
 }
