@@ -74,6 +74,28 @@ namespace Biblioteca.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kisspng_computer_icons_symbol_login_register_button_5ac21706854256_2899999815226693185458 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-computer-icons-symbol-login-register-button-5ac21706854256.28999998152266" +
+                        "93185458", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_computer_icons_symbol_login_register_button_5ac21706854256_2899999815226693185458_removebg_preview_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-computer-icons-symbol-login-register-button-5ac21706854256.28999998152266" +
+                        "93185458-removebg-preview-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap klipartz_com {
             get {
                 object obj = ResourceManager.GetObject("klipartz.com", resourceCulture);

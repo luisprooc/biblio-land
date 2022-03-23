@@ -46,6 +46,7 @@ namespace Biblioteca
             if(login.Permission == "DEFAULT")
             {
                 new ReaderWiew().Show();
+                this.Hide();
             }
 
             else

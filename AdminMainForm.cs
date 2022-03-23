@@ -92,6 +92,11 @@ namespace Biblioteca
             string columnName = dgBooks.Columns[e.ColumnIndex].Name;
             string value = dgBooks[e.ColumnIndex, position].Value.ToString();
 
+            if(columnName != "titulo" && columnName != "fecha_lanzamiento")
+            {
+               MessageBox.Show("Solo puedes actualizar el titulo y fecha de lanzamiento del libro.", "Error al actualizar el libro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             connection database = new connection();
             bool success = database.updateBook(id, columnName, value);
 
@@ -99,7 +104,7 @@ namespace Biblioteca
             {
 
                 MessageBox.Show("Libro actualizado satisfactoriamente.");
-                dgBooks.DataSource = data.readerWiew(sqlAdvancedConsultation);
+
             }
 
             else

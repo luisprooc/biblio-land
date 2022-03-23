@@ -87,8 +87,14 @@ namespace Biblioteca
             string columnName = dgAuthor.Columns[e.ColumnIndex].Name;
             string value = dgAuthor[e.ColumnIndex, position].Value.ToString();
 
+            if(columnName == "id_autor")
+            {
+               MessageBox.Show("No puedes actualizar este campo.", "Error al editar autor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             connection database = new connection();
             bool success = database.updateAuthor(id, columnName, value);
+
 
             if (success)
             {
@@ -99,7 +105,7 @@ namespace Biblioteca
 
             else
             {
-                MessageBox.Show("No se ha podido agregar el autor.", "Error al agregar autor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se ha podido agregar el autor.", "Error al editar autor", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

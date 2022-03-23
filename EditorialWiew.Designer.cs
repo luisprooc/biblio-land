@@ -40,18 +40,20 @@
             this.refreshBtn = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtUpdateEditorial = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEditorial)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvEditorial
             // 
+            this.dgvEditorial.AllowUserToAddRows = false;
+            this.dgvEditorial.AllowUserToDeleteRows = false;
             this.dgvEditorial.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvEditorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEditorial.Location = new System.Drawing.Point(55, 127);
             this.dgvEditorial.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dgvEditorial.Name = "dgvEditorial";
+            this.dgvEditorial.ReadOnly = true;
             this.dgvEditorial.RowHeadersWidth = 51;
             this.dgvEditorial.Size = new System.Drawing.Size(406, 448);
             this.dgvEditorial.TabIndex = 0;
@@ -125,6 +127,7 @@
             // 
             // btnAddEditorial
             // 
+            this.btnAddEditorial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddEditorial.Location = new System.Drawing.Point(956, 164);
             this.btnAddEditorial.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAddEditorial.Name = "btnAddEditorial";
@@ -149,7 +152,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.Location = new System.Drawing.Point(956, 228);
+            this.btnUpdate.Location = new System.Drawing.Point(778, 273);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(134, 34);
@@ -160,21 +163,11 @@
             // 
             // txtUpdateEditorial
             // 
-            this.txtUpdateEditorial.Location = new System.Drawing.Point(705, 233);
+            this.txtUpdateEditorial.Location = new System.Drawing.Point(492, 278);
             this.txtUpdateEditorial.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtUpdateEditorial.Name = "txtUpdateEditorial";
             this.txtUpdateEditorial.Size = new System.Drawing.Size(239, 25);
             this.txtUpdateEditorial.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(560, 236);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 18);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Actualizar ";
             // 
             // EditorialWiew
             // 
@@ -182,7 +175,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1139, 623);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.btnAddEditorial);
@@ -219,6 +211,5 @@
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtUpdateEditorial;
-        private System.Windows.Forms.Label label3;
     }
 }

@@ -17,7 +17,7 @@ namespace Biblioteca
     public partial class ReaderWiew : Form
     {
         classReaderWiew data = new classReaderWiew();
-        string sqlAdvancedConsultation = "SELECT LIBRO.titulo, LIBRO.fecha_lanzamiento, DETALLES_LIBRO.edicion, DETALLES_LIBRO.idioma, DETALLES_LIBRO.rating, AUTOR.id_autor, AUTOR.nombre, AUTOR.apellido, EDITORIAL.editorial FROM LIBRO INNER JOIN DETALLES_LIBRO ON LIBRO.id_detalles_libro = DETALLES_LIBRO.id_detalles_libro INNER JOIN EDITORIAL ON LIBRO.id_editorial = EDITORIAL.id_editorial LEFT JOIN AUTOR ON LIBRO.id_autor = AUTOR.id_autor;";
+        string sqlAdvancedConsultation = "SELECT LIBRO.titulo, LIBRO.fecha_lanzamiento, DETALLES_LIBRO.edicion, DETALLES_LIBRO.idioma, DETALLES_LIBRO.rating, AUTOR.id_autor, AUTOR.nombre, AUTOR.apellido, EDITORIAL.editorial FROM LIBRO INNER JOIN DETALLES_LIBRO ON LIBRO.id_detalles_libro = DETALLES_LIBRO.id_detalles_libro INNER JOIN EDITORIAL ON LIBRO.id_editorial = EDITORIAL.id_editorial LEFT JOIN AUTOR ON LIBRO.id_autor = AUTOR.id_autor";
 
         public ReaderWiew()
         {
@@ -27,11 +27,7 @@ namespace Biblioteca
 
         private void ReaderWiew1_Load(object sender, EventArgs e)
         {
-
-
             dgvBooks.DataSource = data.readerWiew(sqlAdvancedConsultation); 
-
-
         }
         private void Search(string value)
         {
@@ -40,11 +36,6 @@ namespace Biblioteca
             dgvBooks.DataSource = data.readerWiew(sqlSearch);
 
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Search(txtSearch.Text);
@@ -54,6 +45,12 @@ namespace Biblioteca
         {
             dgvBooks.DataSource = data.readerWiew(sqlAdvancedConsultation);
 
+        }
+
+        private void orderCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string order = this.orderCb.SelectedItem.ToString();
+            dgvBooks.DataSource = data.readerWiew(sqlAdvancedConsultation + $" ORDER BY LIBRO.titulo {order}");
         }
     }
 }
